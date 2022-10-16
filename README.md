@@ -7,9 +7,11 @@
 ## How we built it
 Our project uses flask to call OpenCV's API computer vision and present the model to our frontend using React.
 ## Challenges we ran into
-Many of our challenges revolved around connecting our flask model from OpenCV's API to our frontend.
+- transporting our flask model from OpenCV's API to our frontend
 ## Accomplishments that we're proud of
 
 ## What we learned
-
+- **OpenCV API**
+- Integrationg between **Flask** and **React**
 ## What's next for RightAngle
+
