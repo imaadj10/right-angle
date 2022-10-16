@@ -77,3 +77,12 @@ button:hover {
 button:focus {
   outline: none;
 }
+
+.github {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+  -webkit-transform: scale(0.5, 0.5);
+}

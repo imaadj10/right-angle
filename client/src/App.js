@@ -1,6 +1,6 @@
 import Title from "./components/Title";
 import Cam from './right_angle/templates/index';
-import git from './assets/gitlogo.png'
+import git from './assets/githublogo.png'
 import './App.css'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     Calibrate
     </button>
     <a href="https://github.com/ImaadJ10/RightAngle" target="_" className="grid">
-    <img class='github' src={git} alt="Github" className="h-1/12 w-1/12 place-self-end" />
+    <img class='github' src={git} alt="Github"/>
     </a>
   </div>;
 }
