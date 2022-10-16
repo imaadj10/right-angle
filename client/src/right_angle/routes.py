@@ -43,12 +43,11 @@ def generate_frames():
         if set_height:
             text = 'Calibrating'
             # get boundary of this text
-            textsize = cv2.getTextSize(text, font, 1, 2)[0]
+            textsize = cv2.getTextSize(text, font, 3, 3)[0]
             # get coords based on boundary
             textX = (img.shape[1] - textsize[0]) // 2
-            textY = (img.shape[0] + textsize[1]) // 2
 
-            cv2.putText(img, text, (textX, textY), font, 3, (255, 0, 0), 3)
+            cv2.putText(img, text, (textX, 50), font, 3, (255, 0, 0), 3)
             temp_height += height
             height_count += 1
             if height_count == 100:
@@ -61,19 +60,19 @@ def generate_frames():
             if (Posture.is_slouch()):
                 text = 'Sit up straight.'
                 # get boundary of this text
-                textsize = cv2.getTextSize(text, font, 1, 2)[0]
+                textsize = cv2.getTextSize(text, font, 3, 3)[0]
                 # get coords based on boundary
                 textX = (img.shape[1] - textsize[0]) // 2
-                textY = (img.shape[0] + textsize[1]) // 2
-                cv2.putText(img, text, (textX, textY), font, 3, (0, 0, 255), 3)
+                
+                cv2.putText(img, text, (textX, 50), font, 3, (0, 0, 255), 3)
             else:
                 text = "You're doing great!"
                 # get boundary of this text
-                textsize = cv2.getTextSize(text, font, 1, 2)[0]
+                textsize = cv2.getTextSize(text, font, 3, 3)[0]
                 # get coords based on boundary
                 textX = (img.shape[1] - textsize[0]) // 2
-                textY = (img.shape[0] + textsize[1]) // 2
-                cv2.putText(img, text, (textX, textY), font, 3, (0, 255, 0), 3)
+
+                cv2.putText(img, text, (textX, 50), font, 3, (0, 255, 0), 3)
                     
         frame = cv2.imencode('.jpg', img)[1].tobytes()
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
