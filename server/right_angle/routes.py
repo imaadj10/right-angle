@@ -1,6 +1,6 @@
-from posture_corrector import app
+from right_angle import app
 from flask import render_template, Response
-from posture_corrector.camera import VideoCamera
+from right_angle.camera import VideoCamera
 
 @app.route('/')
 def index():
