@@ -13,6 +13,6 @@ Our project uses a Flask backend, and OpenCV to monitor the user's position and 
 
 ## What we learned
 - **OpenCV API**
-- Integrationg between **Flask** and **React**
+- Integration between **Flask** and **React**
 ## What's next for RightAngle
-
+- Adding database and authentication systems so users can track how their posture improves!
