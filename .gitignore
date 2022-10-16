@@ -1,4 +1,5 @@
 client/src/right_angle/__pycache__/
+client/src/__pycache__/
 # Logs
 logs
 *.log
