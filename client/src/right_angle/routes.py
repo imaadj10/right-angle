@@ -5,8 +5,6 @@ import cv2
 import time
 import posture
 
-
-
 def generate_frames():
     previous_time = 0
     # creating our model to draw landmarks
