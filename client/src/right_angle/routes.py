@@ -52,10 +52,9 @@ def generate_frames():
             Posture.new_val(height)
 
             if (Posture.is_slouch()):
-                print('YOU ARE FUCKING SLOUCHING')
-                cv2.putText(img, 'YOU ARE FUCKING SLOUCHING', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+                cv2.putText(img, 'Sit up straight.', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
             else:
-                cv2.putText(img, 'You fine girl', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+                cv2.putText(img, "You're doing great!", (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
                     
 
         # Writing FrameRate on video
