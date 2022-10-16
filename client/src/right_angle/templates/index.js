@@ -4,7 +4,7 @@ const Cam = () => {
 return (
   <div>
    <img
-    src="http://localhost:5000/video_feed"
+    src="http://localhost:5000/video"
     alt="Video"
    />
   </div>
