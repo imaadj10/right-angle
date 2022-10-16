@@ -5,7 +5,6 @@
 ## What it does
   **Right Angle** is a program that corrects a user's posture by identifying their body's pose and informs the user whether or not their posture should be corrected. The program first tells the user to sit up straight while it calibrates. Once calibrated, the program will signal to the user if their posture is good or bad!
 ## How we built it
-Our project uses flask to call OpenCV's API computer vision and present the model to our frontend using React.
 Our project uses a Flask backend, and OpenCV to monitor the user's position and posture. Our frontend was made using React and Tailwind.
 ## Challenges we ran into
 - Connecting our Flask backend to our frontend
