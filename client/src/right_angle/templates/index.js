@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Cam = () => {
   return (
-    <div className="w-1/2">
+    <div className="w-auto">
       <img
         className="rounded-2xl shadow-2xl"
         src="http://localhost:5000/video"
