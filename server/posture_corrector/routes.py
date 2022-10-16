@@ -3,7 +3,6 @@ from flask import render_template, Response
 from posture_corrector.camera import VideoCamera
 
 @app.route('/')
-@app.route('/')
 def index():
     return render_template('index.js')
     
