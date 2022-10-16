@@ -4,6 +4,7 @@ import mediapipe as mp
 import cv2
 import time
 import posture
+import beepy
 
 def generate_frames():
     previous_time = 0
@@ -21,6 +22,8 @@ def generate_frames():
     height_count = 0
     temp_height = 0
     cap = cv2.VideoCapture(0)
+    loop_count = 0
+    num_iterations = 10
 
     while True:
 
@@ -32,13 +35,8 @@ def generate_frames():
         if result.pose_landmarks:
             mpDraw.draw_landmarks(img, result.pose_landmarks, my_pose.POSE_CONNECTIONS)
 
-        # checking video frame rate
-        current_time = time.time()
-        fps = 1 / (current_time - previous_time)
-        previous_time = current_time
-
         lm = result.pose_landmarks
-        height = int(lm.landmark[0].y * 100)
+        height = int(lm.landmark[0].y * 100) if lm else 0
 
         if set_height:
             text = 'Calibrating'
@@ -66,6 +64,9 @@ def generate_frames():
                 textX = (img.shape[1] - textsize[0]) // 2
                 textY = (img.shape[0] + textsize[1]) // 2
                 cv2.putText(img, text, (textX, textY), font, 3, (0, 0, 255), 3)
+                # Ring Bell
+                if loop_count == 1:
+                    beepy.beep(sound="error")
             else:
                 text = "You're doing great!"
                 # get boundary of this text
@@ -80,6 +81,9 @@ def generate_frames():
         key = cv2.waitKey(20)
         if key == 27:
             break
+            
+        loop_count += 1
+        loop_count = loop_count % num_iterations
 
 @app.route('/')
 def index():
