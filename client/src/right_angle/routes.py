@@ -3,6 +3,9 @@ from flask import render_template, Response
 import mediapipe as mp
 import cv2
 import time
+import posture
+
+
 
 def generate_frames():
     previous_time = 0
@@ -11,10 +14,16 @@ def generate_frames():
     # creating our model to detected our pose
     my_pose = mp.solutions.pose
     pose = my_pose.Pose()
-
+    
+    Posture = None
+    
+    set_height = True
+    height_count = 0
+    temp_height = 0
     cap = cv2.VideoCapture(0)
 
     while True:
+
         success, img = cap.read()
         # converting image to RGB from BGR cuz mediapipe only work on RGB
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -28,8 +37,29 @@ def generate_frames():
         fps = 1 / (current_time - previous_time)
         previous_time = current_time
 
+        lm = result.pose_landmarks
+        height = int(lm.landmark[0].y * 100)
+
+        if set_height:
+            cv2.putText(img, 'Calibrating', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+            temp_height += height
+            height_count += 1
+            if height_count == 100:
+                set_height = False
+                Posture = posture.Posture(temp_height / 100)
+        
+        if not set_height:
+            Posture.new_val(height)
+
+            if (Posture.is_slouch()):
+                print('YOU ARE FUCKING SLOUCHING')
+                cv2.putText(img, 'YOU ARE FUCKING SLOUCHING', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+            else:
+                cv2.putText(img, 'You fine girl', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+                    
+
         # Writing FrameRate on video
-        cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+        # cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 
         #cv2.imshow("Pose detection", img)
         frame = cv2.imencode('.jpg', img)[1].tobytes()
