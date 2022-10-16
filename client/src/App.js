@@ -1,5 +1,5 @@
 import Title from "./components/Title";
-import Cam from './components/index';
+import Cam from './right_angle/templates/index';
 
 function App() {
   return <div>
