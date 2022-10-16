@@ -12,7 +12,7 @@ function App() {
   return <div className="bg-gradient-to-tr from-indigo-300 to-purple-400 animate-gradient-xy grid place-items-center h-screen">
     <Title />
     <Cam />
-    <button onClick={refreshPage}>
+    <button className="place-self-center" onClick={refreshPage}>
     Calibrate
     </button>
     <a href="https://github.com/ImaadJ10/RightAngle" target="_" className="grid">
