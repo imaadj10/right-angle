@@ -9,7 +9,9 @@ Our project uses a Flask backend, and OpenCV to monitor the user's position and 
 ## Challenges we ran into
 - Connecting our Flask backend to our frontend
 ## Accomplishments that we're proud of
-
+- Using OpenCV to accurately determine if a user's posture is good or bad
+- Incorporating OpenCV with our frontend to display video in browser
+- Designing a stylish looking frontend
 ## What we learned
 - **OpenCV API**
 - Integration between **Flask** and **React**
