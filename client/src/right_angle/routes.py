@@ -15,6 +15,8 @@ def generate_frames():
     my_pose = mp.solutions.pose
     pose = my_pose.Pose()
     
+    font = cv2.FONT_HERSHEY_PLAIN
+
     Posture = None
     
     set_height = True
@@ -41,7 +43,14 @@ def generate_frames():
         height = int(lm.landmark[0].y * 100)
 
         if set_height:
-            cv2.putText(img, 'Calibrating', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+            text = 'Calibrating'
+            # get boundary of this text
+            textsize = cv2.getTextSize(text, font, 1, 2)[0]
+            # get coords based on boundary
+            textX = (img.shape[1] - textsize[0]) / 2
+            textY = (img.shape[0] + textsize[1]) / 2
+
+            cv2.putText(img, 'Calibrating', (textX, textY), font, 3, (255, 0, 0), 3)
             temp_height += height
             height_count += 1
             if height_count == 100:
@@ -52,15 +61,22 @@ def generate_frames():
             Posture.new_val(height)
 
             if (Posture.is_slouch()):
-                cv2.putText(img, 'Sit up straight.', (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+                text = 'Sit up straight.'
+                # get boundary of this text
+                textsize = cv2.getTextSize(text, font, 1, 2)[0]
+                # get coords based on boundary
+                textX = (img.shape[1] - textsize[0]) / 2
+                textY = (img.shape[0] + textsize[1]) / 2
+                cv2.putText(img, text, (textX, textY), font, 3, (0, 0, 255), 3)
             else:
-                cv2.putText(img, "You're doing great!", (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 3)
+                text = "You're doing great!"
+                # get boundary of this text
+                textsize = cv2.getTextSize(text, font, 1, 2)[0]
+                # get coords based on boundary
+                textX = (img.shape[1] - textsize[0]) / 2
+                textY = (img.shape[0] + textsize[1]) / 2
+                cv2.putText(img, "You're doing great!", (textX, textY), font, 3, (0, 255, 0), 3)
                     
-
-        # Writing FrameRate on video
-        # cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
-
-        #cv2.imshow("Pose detection", img)
         frame = cv2.imencode('.jpg', img)[1].tobytes()
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         key = cv2.waitKey(20)
