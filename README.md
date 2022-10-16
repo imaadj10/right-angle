@@ -3,7 +3,7 @@ Right Angle is a posture correction web application that uses computer vision to
 
 Calibration           |  Correct Posture         |  Incorrect Posture
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="client/src/assets/Calibrate.png" alt="calibration" width="100%"/>  |  <img src="client/src/assets/Correct.png" alt="correct_posture" width="100%"/> |  <img src="client/src/assets/Incorrect.png" alt="incorrect_posture" width="100%"/> 
+<img src="src/assets/Calibrate.png" alt="calibration" width="100%"/>  |  <img src="src/assets/Correct.png" alt="correct_posture" width="100%"/> |  <img src="src/assets/Incorrect.png" alt="incorrect_posture" width="100%"/> 
 ## Inspiration
 In the age of COVID-19, we realized the importance of office ergonomics as we transitioned to remote work and learning. As current co-op interns, it's easy for us to forget how to maintain a healthy posture, as we spend the majority of our days seated at our desk. That's why we were inspired to create **Right Angle**; an application to office workers and students create the healthy habit of correcting their posture!
   
