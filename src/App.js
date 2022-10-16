@@ -1,5 +1,5 @@
 import Title from "./components/Title";
-import Cam from './right_angle/templates/index';
+import Cam from './server/templates/index';
 import git from './assets/githublogo.png'
 import './App.css'
 

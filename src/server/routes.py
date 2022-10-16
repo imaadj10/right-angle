@@ -1,4 +1,4 @@
-from right_angle import app
+from server import app
 from flask import render_template, Response
 import mediapipe as mp
 import cv2
