@@ -5,7 +5,7 @@ Calibration           |  Correct Posture         |  Incorrect Posture
 :-------------------------:|:-------------------------:|:-------------------------:
 <img src="src/assets/Calibrate.png" alt="calibration" width="100%"/>  |  <img src="src/assets/Correct.png" alt="correct_posture" width="100%"/> |  <img src="src/assets/Incorrect.png" alt="incorrect_posture" width="100%"/> 
 ## Inspiration
-In the age of COVID-19, we realized the importance of office ergonomics as we transitioned to remote work and learning. As current co-op interns, it's easy for us to forget how to maintain a healthy posture, as we spend the majority of our days seated at our desk. That's why we were inspired to create **Right Angle**; an application to office workers and students create the healthy habit of correcting their posture!
+In the age of COVID-19, we realized the importance of office ergonomics as we transitioned to remote work and learning. As current co-op interns, it's easy for us to forget how to maintain a healthy posture, as we spend the majority of our days seated at our desk. That's why we were inspired to create **Right Angle**; an application to help office workers and students create the healthy habit of correcting their posture!
   
 ## What it does
 **Right Angle** is a program that corrects a user's posture by identifying their body's pose and informs the user whether or not their posture should be corrected. The program first tells the user to sit up straight while it calibrates. Once calibrated, the program will signal to the user if their posture is good or bad!
